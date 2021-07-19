@@ -12,4 +12,5 @@ project_name = "iriswear"
 pypi = false
 
 [tool.bork.zipapp]
-enabled = false
+enabled = true
+main = "iriswear.cli:main"
