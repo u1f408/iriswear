@@ -25,5 +25,14 @@ class Config:
     def load_from_object(self, obj):
         self.raw_values = dict(obj.__dict__)
 
+    @property
+    def mqtt_host_port(self):
+        return self.raw_values.get('MQTT_SERVER', ('127.0.0.1', 1883))
+
+    @property
+    def mqtt_topic(self):
+        return self.raw_values.get('MQTT_TOPIC_LIST', {
+            'announce': '/iriswear/announce',
+        })
 
 current_config = Config()
