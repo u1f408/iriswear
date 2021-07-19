@@ -48,6 +48,8 @@ def main():
     """Main entrypoint function, dispatching subcommands.
     """
 
+    import iriswear.announce
+
     args = cli.parse_args()
     if args.subcommand is None:
         cli.print_help()
