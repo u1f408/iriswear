@@ -21,8 +21,13 @@ class Announcer:
         self.mqtt_client.connect_async(mqtt_host, port=mqtt_port)
         self.mqtt_client.loop_start()
         
-        self.logger.info("Starting SpeechDispatcher…")
-        self.speech.run()
+        try:
+            self.logger.info("Starting SpeechDispatcher…")
+            self.speech.run()
+        except KeyboardInterrupt:
+            self.logger.warn("Shutting down…")
+            self.mqtt_client.disconnect()
+            self.speech.shutdown()
     
     def mqtt_on_connect(self, client, userdata, flags, rc):
         self.logger.info(f"mqtt_on_connect: rc {repr(rc)}")
