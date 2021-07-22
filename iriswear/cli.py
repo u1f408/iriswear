@@ -49,6 +49,7 @@ def main():
     """
 
     import iriswear.announce
+    import iriswear.notify
 
     args = cli.parse_args()
     if args.subcommand is None:

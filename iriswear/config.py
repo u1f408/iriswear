@@ -33,6 +33,12 @@ class Config:
     def mqtt_topic(self):
         return self.raw_values.get('MQTT_TOPIC_LIST', {
             'announce': '/iriswear/announce',
+            'notify': '/iriswear/notify',
         })
+        
+    @property
+    def notify_announce_priority(self):
+        return self.raw_values.get('NOTIFY_ANNOUNCE_PRIORITY', 3)
+
 
 current_config = Config()
