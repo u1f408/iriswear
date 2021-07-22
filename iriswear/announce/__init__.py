@@ -2,8 +2,8 @@ import json
 import logging
 import paho.mqtt.client as mqtt
 
-from . import cli
-from .config import current_config
+from .. import cli
+from ..config import current_config
 from .speech import SpeechDispatcher
 
 
